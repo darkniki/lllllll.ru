@@ -1,0 +1,13 @@
+.timer {
+  display: flex;
+  justify-content: space-around;
+
+  &__num {
+    font-size: 80px;
+    margin-bottom: 10px;
+  }
+
+  &__text {
+    font-size: 30px;
+  }
+}
