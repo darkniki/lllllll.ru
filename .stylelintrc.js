@@ -1,6 +1,6 @@
 module.exports = {
     extends: [
-        'stylelint-config-airbnb',
+        'stylelint-config-standard',
     ],
     plugins: [
         'stylelint-order',
