@@ -1,7 +1,16 @@
 .birthday {
-  display: none;
-  width: 100%;
+  display:none;
+  background-color: yellow;
+  color: black;
+  padding: 0.125em;
+  font-size: 4em;
   text-align: center;
-  color: white;
-  font-size: 70px;
+  white-space: nowrap;
+  transform: rotate(-10deg);
+  position: fixed;
+  top: 40%;
+  left: -5%;
+  right: -5%;
+  z-index: 100;
+  margin-top: 0;
 }
