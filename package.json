@@ -39,6 +39,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
+    "canvas-confetti": "^1.4.0",
     "normalize.css": "^8.0.1",
     "stylelint-config-standard": "^22.0.0"
   }

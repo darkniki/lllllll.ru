@@ -1,6 +1,34 @@
 import './styles/main.scss';
 
 require('./index.html');
+const confetti = require('canvas-confetti');
+const colors = ['#ffffff', '#ffd300'];
+
+const myConfetti = confetti.create(document.getElementById('wrapper'), {
+    resize: true,
+    useWorker: true,
+});
+
+function frame() {
+    myConfetti({
+        particleCount: 2,
+        angle: 60,
+        spread: 55,
+        origin: {x: 0},
+        colors: colors,
+    });
+    myConfetti({
+        particleCount: 2,
+        angle: 120,
+        spread: 55,
+        origin: {x: 1},
+        colors: colors,
+    });
+    if (Date.now() < Date.now() + 15000) {
+        requestAnimationFrame(frame);
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const birthdayTime = document.querySelector('#birthdayTime');
     const countdownContainer = document.querySelector('#countdown');
@@ -44,6 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Happy birthday, Mikita!');
             countdownContainer.style.display = 'none';
             birthdayTime.style.display = 'block';
+            frame();
         } else {
             daysCountdown.textContent = days;
             hoursCountdown.textContent = hours;
