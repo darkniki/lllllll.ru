@@ -48,9 +48,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const now = new Date();
 
         if (now > eventDate) {
-            eventDate = new Date(yearOfTheEvent + 1, 11, 7);
+            eventDate = new Date(yearOfTheEvent + 1, 10, 7);
         } else if (now.getFullYear() === eventDate.getFullYear() + 1) {
-            eventDate = new Date(now.getFullYear(), 11, 7);
+            eventDate = new Date(now.getFullYear(), 10, 7);
         }
 
         const currentTime = now.getTime();
