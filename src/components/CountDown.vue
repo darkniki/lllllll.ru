@@ -42,8 +42,8 @@ import { defineComponent, onMounted, ref, computed } from '@vue/composition-api'
 import Confetti from 'vue-confetti/src/confetti';
 
 const BIRTH = {
-  day: 19,
-  month: 11,
+  day: 7,
+  month: 10,
 };
 const yearOfTheEvent = new Date().getFullYear();
 let eventDate = new Date(yearOfTheEvent, BIRTH.month, BIRTH.day);
