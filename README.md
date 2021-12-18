@@ -1,18 +1,21 @@
-# lllllll.ru
+# it_is_my_birthday
 
 https://lllllll.ru/
 
 ## Project setup
 ```
-npm install
+yarn install
 ```
 
 ### Compiles and hot-reloads for development
 ```
-npm run start
+yarn serve
 ```
 
 ### Compiles and minifies for production
 ```
-npm run build
+yarn build
 ```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
