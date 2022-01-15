@@ -10,19 +10,19 @@
             <div class="countdown__timer timer">
               <div class="timer__item">
                 <div class="timer__num">{{ props.days }}</div>
-                <div class="timer__text">days</div>
+                <div class="timer__text">{{ getPluralForm(props.days, ['Day', 'Days']) }}</div>
               </div>
               <div class="timer__item">
                 <div class="timer__num">{{ props.hours }}</div>
-                <div class="timer__text">Hours</div>
+                <div class="timer__text">{{ getPluralForm(props.hours, ['Hour', 'Hours']) }}</div>
               </div>
               <div class="timer__item">
                 <div class="timer__num">{{ props.minutes }}</div>
-                <div class="timer__text">Minutes</div>
+                <div class="timer__text">{{ getPluralForm(props.minutes, ['Minute', 'Minutes']) }}</div>
               </div>
               <div class="timer__item">
                 <div class="timer__num">{{ props.seconds }}</div>
-                <div class="timer__text">Seconds</div>
+                <div class="timer__text">{{ getPluralForm(props.seconds, ['Second', 'Seconds']) }}</div>
               </div>
             </div>
           </template>
@@ -40,6 +40,7 @@
 <script>
 import { defineComponent, onMounted, ref, computed } from '@vue/composition-api'
 import Confetti from 'vue-confetti/src/confetti';
+import {getPluralForm} from '@/utils/getPluralForm';
 
 const BIRTH = {
   day: 7,
@@ -53,8 +54,6 @@ export default defineComponent({
     const now = ref(new Date());
     const party = ref(false);
     const confetti = new Confetti();
-    const partyStart = () => confetti.start();
-    const partyStop = () => confetti.stop();
     const birthday = computed(() => now.value.getMonth() === BIRTH.month && now.value.getDate() === BIRTH.day);
     const getYear = computed(() => now.value.getFullYear());
     const getTimestamp = computed(() => now.value.getTime());
@@ -70,10 +69,10 @@ export default defineComponent({
     const partyHandler = () => {
       if (birthday.value && !party.value) {
         party.value = true
-        partyStart()
+        confetti.start()
       } else if (!birthday.value && party.value) {
         party.value = false
-        partyStop()
+        confetti.stop();
       }
     }
     const updatePartyTime = () => setInterval(() => {
@@ -84,6 +83,7 @@ export default defineComponent({
     onMounted(updatePartyTime)
 
     return {
+      getPluralForm,
       timeToBirthday,
       birthday,
     }
@@ -92,6 +92,5 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap");
-@import "src/assets/main";
+@import "src/assets/styles/main";
 </style>
