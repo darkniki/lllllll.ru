@@ -6,10 +6,22 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
-    name: 'CountDown',
-    component: CountDown
-  }
+    path: '/:lang(en|ru)?',
+    component: {
+      render(createElement) { return createElement('router-view') }
+    },
+    children: [
+      {
+        path     : '/',
+        name     : 'CountDown',
+        component: CountDown,
+      }
+    ]
+  },
+  {
+    path: '*',
+    redirect: '/'
+  },
 ]
 
 const router = new VueRouter({

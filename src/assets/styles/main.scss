@@ -3,23 +3,31 @@
 
 @import "birthday";
 @import "timer";
+@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css');
 
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+
+}
+
+a {
+  text-decoration: none;
 }
 
 body {
   background-color: hsl(0, 0%, 0%);
   color: hsl(0, 0%, 100%);
   font-family: $sourceSansPro;
+  box-sizing: border-box;
 }
 
 .wrapper {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 90vh;
   justify-content: center;
   align-items: center;
 }
