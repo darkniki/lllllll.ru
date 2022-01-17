@@ -3,13 +3,10 @@
 
 @import "birthday";
 @import "timer";
-@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css');
 
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-
 }
 
 a {
@@ -20,7 +17,6 @@ body {
   background-color: hsl(0, 0%, 0%);
   color: hsl(0, 0%, 100%);
   font-family: $sourceSansPro;
-  box-sizing: border-box;
 }
 
 .wrapper {
