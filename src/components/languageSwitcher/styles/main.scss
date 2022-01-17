@@ -1,0 +1,16 @@
+.language-switcher-locales {
+  &__list {
+    list-style: none;
+    display: flex
+  }
+
+  &__item {
+    text-transform: uppercase;
+    padding: 5px;
+
+    &--btn {
+      text-decoration: none;
+      color: aqua;
+    }
+  }
+}

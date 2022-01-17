@@ -9,7 +9,7 @@
   </div>
 </template>
 <script>
-import LanguageSwitcher from '@/components/LanguageSwitcher';
+import LanguageSwitcher from '@/components/languageSwitcher/LanguageSwitcher';
 export default {
   components: {LanguageSwitcher},
 };
