@@ -3,26 +3,26 @@
     <template v-if="!birthday">
       <div id="countdown" class="countdown">
         <div class="countdown__title">
-          countdown to my Birthday:
+          {{ $t('countdown') }}
         </div>
         <countdown :time="timeToBirthday">
           <template slot-scope="props">
             <div class="countdown__timer timer">
               <div class="timer__item">
                 <div class="timer__num">{{ props.days }}</div>
-                <div class="timer__text">{{ getPluralForm(props.days, ['Day', 'Days']) }}</div>
+                <div class="timer__text">{{ $tc('days', props.days) }}</div>
               </div>
               <div class="timer__item">
                 <div class="timer__num">{{ props.hours }}</div>
-                <div class="timer__text">{{ getPluralForm(props.hours, ['Hour', 'Hours']) }}</div>
+                <div class="timer__text">{{ $tc('hours', props.hours) }}</div>
               </div>
               <div class="timer__item">
                 <div class="timer__num">{{ props.minutes }}</div>
-                <div class="timer__text">{{ getPluralForm(props.minutes, ['Minute', 'Minutes']) }}</div>
+                <div class="timer__text">{{ $tc('minutes', props.minutes) }}</div>
               </div>
               <div class="timer__item">
                 <div class="timer__num">{{ props.seconds }}</div>
-                <div class="timer__text">{{ getPluralForm(props.seconds, ['Second', 'Seconds']) }}</div>
+                <div class="timer__text">{{ $tc('seconds', props.seconds) }}</div>
               </div>
             </div>
           </template>
@@ -31,7 +31,7 @@
     </template>
     <template v-else>
       <h1 class="birthday">
-        IT IS MY BIRTHDAY.
+        {{ $t('itsMyBirthday') }}
       </h1>
     </template>
   </div>
