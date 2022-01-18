@@ -1,8 +1,8 @@
 .birthday {
   background-color: hsl(60, 100%, 50%);
   color: hsl(0, 0%, 0%);
-  padding: 0.125em;
-  font-size: 4em;
+  padding: em(3, $fz);
+  font-size: em(60, $fz);
   text-align: center;
   text-transform: uppercase;
   white-space: nowrap;
@@ -11,6 +11,13 @@
   top: 40%;
   left: -5%;
   right: -5%;
-  z-index: 100;
-  margin-top: 0;
+  z-index: 1;
+
+  @media screen and ('max-width: 760px') {
+    font-size: em(40, $fz);
+  }
+
+  @media screen and ('max-width: 480px') {
+    font-size: em(25, $fz);
+  }
 }

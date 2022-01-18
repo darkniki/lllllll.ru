@@ -3,19 +3,19 @@
   justify-content: space-around;
 
   &__num {
-    font-size: 80px;
-    margin-bottom: 10px;
+    font-size: em(80, $fz);
+    margin-bottom: em(1, $fz);
 
     @media screen and ('max-width: 480px') {
-      font-size: 40px;
+      font-size: em(40, $fz);
     }
   }
 
   &__text {
-    font-size: 30px;
+    font-size: em(30, $fz);
 
     @media screen and ('max-width: 480px') {
-      font-size: 16px;
+      font-size: em(16, $fz);
     }
   }
 }

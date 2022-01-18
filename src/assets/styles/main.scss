@@ -1,8 +1,6 @@
+@import "helpers/functions";
 @import "helpers/variables";
 @import "helpers/fonts";
-
-@import "birthday";
-@import "timer";
 
 * {
   margin: 0;
@@ -19,26 +17,15 @@ body {
   font-family: $sourceSansPro;
 }
 
-.wrapper {
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  min-height: 90vh;
-  justify-content: center;
-  align-items: center;
+header {
+  height: fit-content;
+  padding: em(5, $fz) 0;
+  margin-bottom: em(-10, $fz);
 }
 
-.countdown {
-  max-width: 920px;
-  text-align: center;
-  text-transform: uppercase;
-
-  &__title {
-    font-size: 60px;
-    margin-bottom: 30px;
-
-    @media screen and ('max-width: 480px') {
-      font-size: 35px;
-    }
-  }
+nav {
+  margin: 0 auto;
+  padding-right: em(10, $fz);
+  display: flex;
+  justify-content: right;
 }

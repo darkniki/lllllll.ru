@@ -15,18 +15,6 @@ export default {
 };
 </script>
 
-<style scoped>
-header {
-  height: fit-content;
-  padding: 10px 0;
-  margin-bottom: -10px;
- }
-
-nav {
-  margin: 0 auto;
-  padding-right: 20px;
-  display: flex;
-  justify-content: right;
-}
-
+<style lang="scss">
+  @import "src/assets/styles/main";
 </style>

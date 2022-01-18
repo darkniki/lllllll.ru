@@ -1,0 +1,30 @@
+@import "src/assets/styles/helpers/functions";
+@import "src/assets/styles/helpers/variables";
+
+@import "birthday";
+@import "timer";
+
+.wrapper {
+  font-family: $sourceSansPro;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 90vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.countdown {
+  max-width: em(920, $fz);
+  text-align: center;
+  text-transform: uppercase;
+
+  &__title {
+    font-size: em(60, $fz);
+    margin-bottom: em(4, $fz);
+
+    @media screen and ('max-width: 480px') {
+      font-size: em(35, $fz);
+    }
+  }
+}

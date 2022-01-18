@@ -91,6 +91,6 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss">
-@import "src/assets/styles/main";
+<style lang="scss" scoped>
+  @import "src/components/countDown/styles/main";
 </style>

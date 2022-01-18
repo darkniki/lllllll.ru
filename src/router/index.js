@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import CountDown from '@/components/CountDown';
+import CountDown from '@/components/countDown/CountDown';
 
 Vue.use(VueRouter)
 
