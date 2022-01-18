@@ -9,10 +9,13 @@
   </div>
 </template>
 <script>
-import LanguageSwitcher from '@/components/languageSwitcher/LanguageSwitcher';
-export default {
+import {defineComponent, defineAsyncComponent} from '@vue/composition-api';
+
+const LanguageSwitcher = defineAsyncComponent( () => (import(/* webpackChunkName: "LanguageSwitcher" */'@/components/languageSwitcher/LanguageSwitcher')));
+
+export default defineComponent({
   components: {LanguageSwitcher},
-};
+});
 </script>
 
 <style lang="scss">
