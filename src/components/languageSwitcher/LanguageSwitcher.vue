@@ -19,12 +19,34 @@
 </template>
 
 <script>
-import {defineComponent} from '@vue/composition-api';
+import {
+  defineComponent,
+  watch,
+  computed,} from '@vue/composition-api';
+import {
+  setDocumentDirectionPerLocale,
+  setDocumentTitle,
+  setDocumentLang
+} from "@/utils/i18n/document";
+
+import VueI18n from '@/i18n'
+
 
 export default defineComponent({
   name: 'LanguageSwitcher',
   setup() {
     const filterCurrentLanguage = (locales, currentLocale) => locales.filter((locale) => locale !== currentLocale);
+
+    const locale = computed(() => VueI18n.locale);
+
+    watch(locale, (newLocale, oldLocale) => {
+      if (newLocale === oldLocale) {
+        return
+      }
+      setDocumentLang(newLocale)
+      setDocumentDirectionPerLocale(newLocale)
+      setDocumentTitle(VueI18n.t('title'))
+    }, { immediate: true });
 
     return {
       filterCurrentLanguage
