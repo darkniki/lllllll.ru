@@ -4,7 +4,7 @@
   @return {Number}
  */
 @function strip-units($number) {
-  @return $number / ($number * 0 + 1);
+  @return calc($number / ($number * 0 + 1));
 }
 
 @function em($values...) {
@@ -16,7 +16,7 @@
     $value: nth($values, $i);
     @if type-of($value) == 'number' {
       $value: strip-units($value);
-      $result: append($result, $value / $context * 1em, $separator);
+      $result: append($result, calc($value / $context * 1em), $separator);
     } @else if type-of($value) == 'list' {
       $result: append($result, em(append($value, $context)...), $separator);
     } @else {
