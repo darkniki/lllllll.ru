@@ -33,4 +33,4 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
       - name: Deploy with rsync
-        run: rsync -avzPn ./dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/srv/lllllll/ --delete-after
+        run: rsync -avzP ./dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/srv/lllllll/ --delete-after
