@@ -18,7 +18,7 @@ jobs:
         run: yarn
       - name: Build App
         run: yarn build
-      -name: Delete source maps
+      - name: Delete source maps
         run: find './dist' -name '*.map' -print0 | xargs -0 rm -f
       - name: Archive build
         uses: actions/upload-artifact@v2
