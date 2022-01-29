@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import { defineComponent, onMounted, ref, computed } from '@vue/composition-api'
+import { defineComponent, onMounted, ref, unref, computed } from '@vue/composition-api'
 import Confetti from 'vue-confetti/src/confetti';
 import {getPluralForm} from '@/utils/getPluralForm';
 
@@ -54,23 +54,21 @@ export default defineComponent({
     const now = ref(new Date());
     const party = ref(false);
     const confetti = new Confetti();
-    const birthday = computed(() => now.value.getMonth() === BIRTH.month && now.value.getDate() === BIRTH.day);
-    const getYear = computed(() => now.value.getFullYear());
-    const getTimestamp = computed(() => now.value.getTime());
+    const birthday = computed(() => unref(now).getMonth() === BIRTH.month && unref(now).getDate() === BIRTH.day);
     const timeToBirthday = computed(() => {
-      if (now.value > eventDate) {
-        eventDate = new Date(getYear.value + 1, BIRTH.month, BIRTH.day);
-      } else if (getYear.value === eventDate.getFullYear() + 1) {
-        eventDate = new Date(getYear.value, BIRTH.month, BIRTH.day);
+      if (unref(now) > eventDate) {
+        eventDate = new Date(unref(now).getFullYear() + 1, BIRTH.month, BIRTH.day);
+      } else if (unref(now).getFullYear() === eventDate.getFullYear() + 1) {
+        eventDate = new Date(unref(now).getFullYear(), BIRTH.month, BIRTH.day);
       }
 
-      return eventDate.getTime() - getTimestamp.value;
+      return eventDate.getTime() - unref(now).getTime();
     });
     const partyHandler = () => {
-      if (birthday.value && !party.value) {
+      if (unref(birthday) && !unref(party)) {
         party.value = true
         confetti.start()
-      } else if (!birthday.value && party.value) {
+      } else if (!unref(birthday) && unref(party)) {
         party.value = false
         confetti.stop();
       }
