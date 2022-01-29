@@ -40,7 +40,7 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
       - name: Deploy with rsync
         run: |
-          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "mkdir -p /srv/lllllll/dev/${{ github.head_ref }}"
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "mkdir -p ~/srv/lllllll/dev/${{ github.head_ref }}"
           rsync -avzP ./dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/srv/lllllll/dev/${{ github.head_ref }} --delete-after
       - name: Post review app URL
         uses: mshick/add-pr-comment@v1
