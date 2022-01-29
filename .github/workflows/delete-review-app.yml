@@ -17,5 +17,5 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
       - name: Deleting review app
         run: |
-          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "rm -rf ~/srv/lllllll/dev/${{ github.head_ref }}"
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "rm -rf /srv/lllllll/dev/${{ github.head_ref }}"
 
