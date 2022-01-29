@@ -42,4 +42,11 @@ jobs:
         run: |
           ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "mkdir -p /srv/lllllll/dev/${{ github.head_ref }}"
           rsync -avzP ./dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/srv/lllllll/dev/${{ github.head_ref }} --delete-after
+      - name: Post review app URL
+        uses: mshick/add-pr-comment@v1
+        with:
+          message: Created new review app at ${{ env.REVIEW_APP_URL }}
+        env:
+          REVIEW_APP_URL: http://${{ github.head_ref }}.dev.lllllll.ru/
+
 
