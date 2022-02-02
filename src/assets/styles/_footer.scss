@@ -1,0 +1,12 @@
+.Cookie--base {
+  background: hsl(0, 0%, 16%);
+  color: hsl(0, 0%, 100%);
+
+  .Cookie__button {
+    background: hsl(1, 64%, 34%);
+
+    &:hover {
+      background: hsl(1, 65%, 28%);
+    }
+  }
+}

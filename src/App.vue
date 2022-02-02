@@ -2,19 +2,31 @@
   <div id="app">
     <header>
       <nav>
-        <LanguageSwitcher/>
+        <LanguageSwitcher />
       </nav>
     </header>
-    <router-view/>
+    <router-view />
+    <footer>
+      <cookie-law :buttonText="$t('cookiesButtonText')">
+        <div slot="message">
+          {{ $t('cookies') }}
+        </div>
+      </cookie-law>
+    </footer>
   </div>
 </template>
+
 <script>
 import {defineComponent, defineAsyncComponent} from '@vue/composition-api';
+import CookieLaw from 'vue-cookie-law';
 
-const LanguageSwitcher = defineAsyncComponent( () => (import(/* webpackChunkName: "LanguageSwitcher" */'@/components/languageSwitcher/LanguageSwitcher')));
+const LanguageSwitcher = defineAsyncComponent(() => import(/* webpackChunkName: "LanguageSwitcher" */'@/components/languageSwitcher/LanguageSwitcher'));
 
 export default defineComponent({
-  components: {LanguageSwitcher},
+  components: {
+    LanguageSwitcher,
+    CookieLaw,
+  },
 });
 </script>
 
