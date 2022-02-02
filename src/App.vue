@@ -18,9 +18,9 @@
 
 <script>
 import {defineComponent, defineAsyncComponent} from '@vue/composition-api';
-import CookieLaw from 'vue-cookie-law';
 
 const LanguageSwitcher = defineAsyncComponent(() => import(/* webpackChunkName: "LanguageSwitcher" */'@/components/languageSwitcher/LanguageSwitcher'));
+const CookieLaw = defineAsyncComponent(() => import(/* webpackChunkName: "CookieLaw" */'vue-cookie-law'));
 
 export default defineComponent({
   components: {
