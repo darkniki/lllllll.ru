@@ -7,7 +7,7 @@
     </header>
     <router-view />
     <footer>
-      <cookie-law :buttonText="$t('cookiesButtonText')">
+      <cookie-law :buttonText="$t('cookiesButtonText')" theme="blood-red">
         <div slot="message">
           {{ $t('cookies') }}
         </div>
@@ -31,5 +31,5 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-  @import "src/assets/styles/main";
+@import "src/assets/styles/main";
 </style>
