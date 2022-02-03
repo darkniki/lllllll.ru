@@ -4,5 +4,7 @@
   "days": "day | days",
   "hours": "hour | hours",
   "minutes": "minute | minutes",
-  "seconds": "second | seconds"
+  "seconds": "second | seconds",
+  "cookies": "This website uses cookies to ensure you get the best experience on our website.",
+  "cookiesButtonText": "Got it!"
 }

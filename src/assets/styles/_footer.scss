@@ -1,0 +1,37 @@
+$backgroundColor: hsl(0, 0%, 16%);
+$fontColor: hsl(0, 0%, 100%);
+$buttonBackgroundColor: hsl(1, 64%, 34%);
+$buttonFontColor: hsl(0, 0%, 100%);
+$buttonRadius: 0;
+
+.Cookie--blood-red {
+  background: $backgroundColor;
+  color: $fontColor;
+  padding: em(20, $fz);
+
+  .Cookie__button {
+    background: $buttonBackgroundColor;
+    padding: em(10, $fz) em(50, $fz);
+    color: $buttonFontColor;
+    border-radius: $buttonRadius;
+    border: 0;
+    font-size: em(16, $fz);
+
+    &:hover {
+      background: darken($buttonBackgroundColor, 10%);
+    }
+  }
+
+  .Cookie__button--decline {
+    background: transparent;
+    padding: em(0.65, $fz) em(3.12, $fz);
+    color: darken($backgroundColor, 50%);
+    border-radius: $buttonRadius;
+    border: 0;
+    font-size: em(16, $fz);
+
+    &:hover {
+      background: darken($backgroundColor, 15%);
+    }
+  }
+}
