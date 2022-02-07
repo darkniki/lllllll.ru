@@ -23,7 +23,7 @@
     font-size: em(60, $fz);
     margin-bottom: em(4, $fz);
 
-    @media screen and ('max-width: 480px') {
+    @media screen and ('max-width: 510px') {
       font-size: em(35, $fz);
     }
   }

@@ -27,6 +27,11 @@ export default defineComponent({
     LanguageSwitcher,
     CookieLaw,
   },
+  mounted() {
+    document.ontouchmove = function (e) {
+      e.preventDefault();
+    }
+  }
 });
 </script>
 
