@@ -1,4 +1,5 @@
 # it_is_my_birthday
+![Build](https://img.shields.io/github/workflow/status/darkniki/lllllll.ru/CI)
 
 https://lllllll.ru/
 
