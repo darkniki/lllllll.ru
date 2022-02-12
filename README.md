@@ -1,5 +1,6 @@
 # it_is_my_birthday
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/darkniki/lllllll.ru/CI)
+![GitHub repo size](https://img.shields.io/github/repo-size/darkniki/lllllll.ru)
 
 https://lllllll.ru/
 
