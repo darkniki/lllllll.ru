@@ -55,6 +55,13 @@ jobs:
           push: true
           tags: ${{ env.IMAGE_NAME }}:latest,${{ env.IMAGE_NAME }}:${{ steps.commit.outputs.short }}
 
+      - name: Upload helm
+        uses: actions/upload-artifact@v2
+        with:
+          name: helm
+          path: .ops/helm
+          retention-days: 5
+
       - name: Save SHA
         env:
           TAG: ${{ steps.commit.outputs.short }}
@@ -83,10 +90,10 @@ jobs:
       - name: Download Deploy
         uses: actions/download-artifact@v2
         with:
-          name: deploy
+          name: helm
 
       - name: Apply pods
-        run: kubectl apply -f .ops/helm/Deployment.yaml -n default
+        run: kubectl apply -f Deployment.yaml -n default
 
       - name: Wait For Deployment To Start
         run: sleep 10s
