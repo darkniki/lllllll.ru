@@ -58,7 +58,7 @@ jobs:
 
       - name: Save SHA
         env:
-          TAG: ${{ steps.vars.outputs.sha_short }}
+          TAG: ${GITHUB_SHA}
         run: |
           envsubst < .ops/helm/Deployment.yaml > tempbase
           cat tempbase > deploy/base/deployment.yaml
