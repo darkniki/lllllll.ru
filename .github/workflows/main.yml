@@ -54,11 +54,11 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ env.IMAGE_NAME }}:latest,${{ env.IMAGE_NAME }}:${GITHUB_SHA}
+          tags: ${{ env.IMAGE_NAME }}:latest,${{ env.IMAGE_NAME }}:${{ GITHUB_SHA }}
 
       - name: Save SHA
         env:
-          TAG: ${GITHUB_SHA}
+          TAG: ${{ GITHUB_SHA }}
         run: |
           envsubst < .ops/helm/Deployment.yaml > tempbase
           cat tempbase > deploy/base/deployment.yaml
