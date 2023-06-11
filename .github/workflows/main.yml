@@ -15,25 +15,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 14
-
-      - name: Install Dependencies
-        run: yarn
-
-      - name: Build App
-        run: yarn build
-
-      - name: Delete source maps
-        run: find './dist' -name '*.map' -print0 | xargs -0 rm -f
-
-      - name: Archive build
-        uses: actions/upload-artifact@v2
-        with:
-          name: build
-          path: dist
+#      - name: Setup Node
+#        uses: actions/setup-node@v3
+#        with:
+#          node-version: 14
+#
+#      - name: Install Dependencies
+#        run: yarn
+#
+#      - name: Build App
+#        run: yarn build
+#
+#      - name: Archive build
+#        uses: actions/upload-artifact@v2
+#        with:
+#          name: build
+#          path: dist
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -52,7 +49,7 @@ jobs:
       - name: Push to Docker Hub
         uses: docker/build-push-action@v2
         with:
-          platforms: linux/arm64/v8,linux/amd64
+          platforms: linux/amd64
           context: .
           file: ./Dockerfile
           push: true
@@ -63,7 +60,7 @@ jobs:
           TAG: ${{ steps.commit.outputs.short }}
         run: |
           envsubst < .ops/helm/Deployment.yaml > tempbase
-          cat tempbase > deploy/base/deployment.yaml
+          cat tempbase > .ops/helm/Deployment.yaml
           rm tempbase
   deploy:
     name: Deploy
