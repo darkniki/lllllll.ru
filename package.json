@@ -4,13 +4,14 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "cross-env NODE_ENV=production vue-cli-service build",
     "i18n:report": "vue-cli-service i18n:report --src \"./src/**/*.?(js|vue)\" --locales \"./src/locales/**/*.json\""
   },
   "dependencies": {
     "@chenfengyuan/vue-countdown": "^1.1.5",
     "@vue/composition-api": "^1.4.1",
     "core-js": "^3.6.5",
+    "cross-env": "^7.0.3",
     "vue": "^2.6.11",
     "vue-confetti": "^2.2.2",
     "vue-cookie-law": "^1.13.3",

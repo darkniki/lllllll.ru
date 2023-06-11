@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: lllllll-ru
+  name: lllllll-ru
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: lllllll-ru
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: lllllll-ru
+    spec:
+      containers:
+        - image: darkniki/lllllll.ru:${TAG}
+          imagePullPolicy: Always
+          name: lllllll-ru
+          ports:
+            - containerPort: 80
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 5
+            timeoutSeconds: 30
+          resources: {}
+      restartPolicy: Always
+      serviceAccountName: ""
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lllllll-ru
+  labels:
+    app: lllllll-ru
+spec:
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 80
+  selector:
+    app: lllllll-ru
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lllllll-ru
+spec:
+  type: LoadBalancer
+  selector:
+    app: lllllll-ru
+  ports:
+    - name: lllllll-ru
+      protocol: TCP
+      port: 80
+      targetPort: 80

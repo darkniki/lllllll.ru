@@ -7,11 +7,11 @@
     </header>
     <router-view />
     <footer>
-      <cookie-law :buttonText="$t('cookiesButtonText')" theme="blood-red">
-        <div slot="message">
-          {{ $t('cookies') }}
-        </div>
-      </cookie-law>
+<!--      <cookie-law :buttonText="$t('cookiesButtonText')" theme="blood-red">-->
+<!--        <div slot="message">-->
+<!--          {{ $t('cookies') }}-->
+<!--        </div>-->
+<!--      </cookie-law>-->
     </footer>
   </div>
 </template>
