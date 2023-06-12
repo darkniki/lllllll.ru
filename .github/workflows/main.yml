@@ -7,6 +7,7 @@ on:
 
 env:
   IMAGE_NAME: ${{ github.repository }}
+  APP_NAME: 'lllllll-ru'
 
 jobs:
   build:
@@ -57,7 +58,7 @@ jobs:
         env:
           TAG: ${{ steps.commit.outputs.short }}
           IMAGE_NAME: ${{ env.IMAGE_NAME }}
-          APP_NAME: 'lllllll-ru'
+          APP_NAME: ${{ env.APP_NAME }}
         run: |
           envsubst < .ops/helm/Deployment.yaml > tempbase
           cat tempbase > .ops/helm/Deployment.yaml
@@ -100,4 +101,4 @@ jobs:
         run: sleep 10s
 
       - name: Wait For Pods To Start
-        run: kubectl wait --for=condition=ready pod -l app=lllllll-ru -n default --timeout=10m
+        run: kubectl wait --for=condition=ready pod -l app=${{ env.APP_NAME }} -n default --timeout=10m
