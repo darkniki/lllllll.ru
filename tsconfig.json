@@ -1,0 +1,33 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "include": [
+    "src/**/*.d.ts", "src/**/*", "src/**/*.vue",
+    "src/shared/config/i18n/locales/*.json"
+  ],
+  "exclude": ["src/**/__tests__/*"],
+  "compilerOptions": {
+    "outDir": "./dist",
+    "composite": true,
+    "noImplicitAny": true,
+    "module": "ESNext",
+    "target": "ES5",
+    "allowJs": true,
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "allowSyntheticDefaultImports": true,
+    "types": [
+      "@types/node"
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "lib": [
+      "webworker",
+      "esnext",
+      "dom",
+    ]
+  }
+}
