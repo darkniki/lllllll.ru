@@ -1,0 +1,40 @@
+.countdown {
+    max-width: 920px;
+    text-align: center;
+    text-transform: uppercase;
+
+    &__title {
+        font: var(--font-xl);
+        margin-bottom: 4px;
+
+        @media screen and ('max-width: 510px') {
+            font: var(--font-l);
+        }
+    }
+
+    .timer {
+        display: flex;
+        justify-content: space-around;
+
+        &__item {
+            width: 25%;
+        }
+
+        &__num {
+            font: var(--font-xl);
+            margin-bottom: 1px;
+
+            @media screen and ('max-width: 510px') {
+                font: var(--font-m);
+            }
+        }
+
+        &__text {
+            font: var(--font-l);
+
+            @media screen and ('max-width: 510px') {
+                font: var(--font-m);
+            }
+        }
+    }
+}

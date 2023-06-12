@@ -1,0 +1,19 @@
+.language-switcher-locales {
+    &__list {
+        list-style: none;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__item {
+        text-transform: uppercase;
+        padding: 10px;
+
+        &--btn {
+            border: 0;
+            background: none;
+            text-transform: uppercase;
+            color: var(--primary-color);
+        }
+    }
+}
