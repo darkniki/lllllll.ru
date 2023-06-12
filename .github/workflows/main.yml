@@ -15,22 +15,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-#      - name: Setup Node
-#        uses: actions/setup-node@v3
-#        with:
-#          node-version: 14
-#
-#      - name: Install Dependencies
-#        run: yarn
-#
-#      - name: Build App
-#        run: yarn build
-#
-#      - name: Archive build
-#        uses: actions/upload-artifact@v2
-#        with:
-#          name: build
-#          path: dist
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14
+
+      - name: Install Dependencies
+        run: yarn
+
+      - name: Build App
+        run: yarn build
+
+      - name: Archive build
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: dist
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
