@@ -7,5 +7,5 @@ defineProps<{ text: string }>();
 </script>
 
 <style lang="scss" scoped>
-@import "styles";
+@import "./FullScreenBadge";
 </style>

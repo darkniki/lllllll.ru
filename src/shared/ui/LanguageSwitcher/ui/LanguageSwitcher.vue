@@ -11,7 +11,7 @@
                     class="language-switcher-locales__item--btn"
                     @click.prevent="switchLanguage(lang as Locale)"
                 >
-                    {{ lang }}
+                    {{ locale }}
                 </button>
             </li>
         </ul>
@@ -36,5 +36,5 @@ const switchLanguage = async (newLocale: Locale) => {
 };
 </script>
 <style scoped lang="scss">
-@import "styles";
+@import "./LanguageSwitcher";
 </style>

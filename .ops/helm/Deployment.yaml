@@ -3,31 +3,31 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: lllllll-ru
-  name: lllllll-ru
+    app: ${APP_NAME}
+  name: ${APP_NAME}
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: lllllll-ru
+      app: ${APP_NAME}
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: lllllll-ru
+        app: ${APP_NAME}
     spec:
       containers:
-        - image: darkniki/lllllll.ru:${TAG}
+        - image: ${IMAGE_NAME}:${TAG}
           imagePullPolicy: Always
-          name: lllllll-ru
+          name: ${APP_NAME}-nginx
           ports:
             - containerPort: 80
           livenessProbe:
             httpGet:
-              path: /
+              path: /status.json
               port: 80
-            initialDelaySeconds: 5
+            initialDelaySeconds: 10
             timeoutSeconds: 30
           resources: {}
       restartPolicy: Always
@@ -37,27 +37,27 @@ status: {}
 apiVersion: v1
 kind: Service
 metadata:
-  name: lllllll-ru
+  name: ${APP_NAME}
   labels:
-    app: lllllll-ru
+    app: ${APP_NAME}
 spec:
   ports:
     - port: 8080
       protocol: TCP
       targetPort: 80
   selector:
-    app: lllllll-ru
+    app: ${APP_NAME}
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: lllllll-ru
+  name: ${APP_NAME}
 spec:
   type: LoadBalancer
   selector:
-    app: lllllll-ru
+    app: ${APP_NAME}
   ports:
-    - name: lllllll-ru
+    - name: ${APP_NAME}
       protocol: TCP
       port: 80
       targetPort: 80

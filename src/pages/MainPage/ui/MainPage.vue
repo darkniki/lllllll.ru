@@ -8,22 +8,26 @@ import { useI18n } from 'vue-i18n';
 import { ref, computed, watch } from 'vue';
 import { useNow } from '@vueuse/core';
 import dayjs from 'dayjs';
-// @ts-ignore
 import Confetti from 'vue-confetti/src/confetti';
 import { FullScreenBadge } from '@/shared/ui/FullScreenBadge';
 import { CountDown } from '@/shared/ui/CountDown';
 
+enum DateFormat {
+    ISO8601 = 'YYYY-mm-dd'
+}
+
 const { t } = useI18n();
 const now = useNow();
-const birthday = '1996/11/07';
+const birthday = '1996-11-07';
 const confetti = new Confetti();
 const isConfetti = ref(false);
-const birthdayThisYear = dayjs(birthday, 'YYYY/mm/dd').year(dayjs().get('year'));
+const birthdayThisYear = dayjs(birthday, DateFormat.ISO8601).year(dayjs().get('year'));
 watch(now, () => {
-    if (birthdayThisYear.isToday() && !isConfetti.value) {
+    const isDateToday = dayjs(birthdayThisYear.format()).isToday();
+    if (isDateToday && !isConfetti.value) {
         isConfetti.value = true;
         confetti.start();
-    } else if (!birthdayThisYear.isToday() && isConfetti.value) {
+    } else if (!isDateToday && isConfetti.value) {
         isConfetti.value = false;
         confetti.stop();
     }

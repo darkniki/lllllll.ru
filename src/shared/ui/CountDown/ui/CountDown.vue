@@ -2,7 +2,7 @@
     <div class="wrapper">
         <div id="countdown" class="countdown">
             <div class="countdown__title">
-                {{ $t('countdown') }}
+                {{ t('countdown') }}
             </div>
             <div class="countdown__timer timer">
                 <div class="timer__item">
@@ -34,5 +34,5 @@ const { t } = useI18n();
 </script>
 
 <style lang="scss" scoped>
-@import "styles";
+@import "./CountDown";
 </style>

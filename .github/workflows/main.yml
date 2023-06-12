@@ -56,6 +56,8 @@ jobs:
       - name: Save SHA
         env:
           TAG: ${{ steps.commit.outputs.short }}
+          IMAGE_NAME: ${{ env.IMAGE_NAME }}
+          APP_NAME: 'lllllll-ru'
         run: |
           envsubst < .ops/helm/Deployment.yaml > tempbase
           cat tempbase > .ops/helm/Deployment.yaml
