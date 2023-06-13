@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, RouterView } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import { MainPage } from '@/pages/MainPage';
 import { Translation } from '@/shared/config/i18n/translation';
 
@@ -17,7 +17,6 @@ const router = createRouter({
     routes: [
         {
             path: RoutePath[AppRoutes.MAIN],
-            component: RouterView,
             beforeEnter: Translation.routeMiddleware,
             children: [
                 {

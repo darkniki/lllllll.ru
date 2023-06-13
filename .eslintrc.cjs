@@ -20,6 +20,7 @@ module.exports = {
         'no-unused-vars': 'off',
         '@typescript-eslint/no-unused-vars': 'error',
         'vue/multi-word-component-names': 'off',
+        'vue/max-len': [2, 140],
     },
     parserOptions: {
         ecmaVersion: 'latest',

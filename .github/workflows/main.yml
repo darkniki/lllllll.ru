@@ -19,7 +19,15 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
 
+      - name: Cache NPM dependencies
+        uses: actions/cache@v3
+        id: yarn-cache
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('yarn.lock') }}
+
       - name: Install Dependencies
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn
 
       - name: Build App
@@ -70,6 +78,29 @@ jobs:
           name: helm
           path: .ops/helm
           retention-days: 5
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        test: [ 'type-check',' lint' ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+
+      - name: Cache NPM dependencies
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('yarn.lock') }}
+
+      - name: run test ${{ matrix.test }}
+        run: npm run ${{ matrix.test }}
 
   deploy:
     name: Deploy
