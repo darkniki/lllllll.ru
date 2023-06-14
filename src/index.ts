@@ -1,13 +1,11 @@
 import '@/app/styles/index.scss';
 import { createApp } from 'vue';
 import dayjs from 'dayjs';
-import isToday from 'dayjs/plugin/isToday';
 import duration from 'dayjs/plugin/duration';
 import App from '@/app/App.vue';
 import { router } from '@/shared/config/router';
 import { i18n } from '@/shared/config/i18n';
 
-dayjs.extend(isToday);
 dayjs.extend(duration);
 const app = createApp(App);
 
