@@ -17,6 +17,7 @@ body {
 
 .app {
     min-height: 100svh;
+    min-width: fit-content;
 }
 
 header {
@@ -31,6 +32,7 @@ header {
     justify-content: center;
     align-items: center;
     height: calc(100svh - var(--navbar-height));
+    min-width: 300px;
 }
 
 

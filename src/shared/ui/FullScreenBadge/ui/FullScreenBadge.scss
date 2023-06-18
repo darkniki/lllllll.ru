@@ -1,7 +1,7 @@
 .badge {
     background-color: var(--accent-color);
     color: var(--bg-color);
-    font: var(--font-xl);
+    font-size: clamp(26px, 6vw, 120px);
     text-align: center;
     text-transform: uppercase;
     white-space: nowrap;
@@ -11,8 +11,4 @@
     left: -5%;
     right: -5%;
     z-index: 1;
-
-    @media screen and ('max-width: 510px') {
-        font: var(--font-l);
-    }
 }
